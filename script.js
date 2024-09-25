@@ -560,14 +560,129 @@
 
 //third method - we'll use new keyword in this method make it as simple as it can for eg
 
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-}
-Person.prototype.greet = function () {
-  console.log(`Hey ${this.firstName} ${this.lastName}..!`);
-}; // prototype will we use to include a function within the Person constructor function
-let user = new Person("lakshyadeep", "gautam"); //this will create a empty object so from this keyword can hold value.
-user.greet();
+// function Person(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+// }
+// Person.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName} ${this.lastName}..!`);
+// }; // prototype will we use to include a function within the Person constructor function
+// let user = new Person("lakshyadeep", "gautam"); //this will create a empty object so from this keyword can hold value.
+// user.greet();
 
-// Class in js
+// practise Prototype
+// Method 1
+// function CallHim(name, phoneNumber) {
+//   const details = Object.create(callGreet);
+//   details.name = name;
+//   details.phoneNumber = phoneNumber;
+//   return details;
+// }
+
+// const callGreet = {
+//   fun: function () {
+//     console.log(
+//       `Hey I;m calling ${this.name} on this ${this.phoneNumber} phone Number`
+//     );
+//   },
+// };
+
+// const execute = CallHim("Lakshyadeep gautam", 8699584712);
+// execute.fun();
+// // Method 2
+// function CallHim(name, phoneNumber) {
+//   const details = Object.create(CallHim.prototype);
+//   details.name = name;
+//   details.phoneNumber = phoneNumber;
+//   return details;
+// }
+
+// CallHim.prototype.fun = function () {
+//   console.log(
+//     `Hey I;m calling ${this.name} on this ${this.phoneNumber} phone Number`
+//   );
+// };
+// const execute = CallHim("Lakshyadeep gautam", 8699584712);
+// execute.fun();
+//Method 3
+function CallHim(name, phoneNumber) {
+  this.name = name;
+  this.phoneNumber = phoneNumber;
+}
+
+CallHim.prototype.fun = function () {
+  console.log(
+    `Hey I'm calling ${this.name} on this ${this.phoneNumber} number`
+  );
+};
+const execute = new CallHim("Lakshyadeep gautam", 8699584712);
+execute.fun();
+
+// classes in javascript
+
+class HelloWorld {
+  constructor(name, age, phone, email, pass) {
+    console.log(
+      `Hey ${name}, age ${age}, phone ${phone}, email ${email} and this is password ${pass}`
+    );
+  }
+}
+
+const obj = new HelloWorld("Lakshyadeep", 47, 47454, "dsadsadsa", "dsadsa");
+
+// now integrating above prototype in class of javascript
+
+class CallHim1 {
+  constructor(name) {
+    this.name = name;
+  }
+  fun() {
+    console.log("Hello mr" + " " + this.name);
+  }
+}
+
+const obj1 = new CallHim1("lakshyuadepdsa");
+obj1.fun();
+
+// practising class
+
+class UserDetails {
+  // this is a fake class means it will work just like function
+  constructor(firstName, lastName, email, phone, password) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phone = phone;
+    this.password = password;
+  }
+
+  function1() {
+    console.log(`Hey I do have your details, please match this before I can hack your pc : {
+      Name : ${this.firstName} ${this.lastName},
+      email : ${this.email},
+      phone : ${this.phone},
+      password : ${this.password}
+      }`);
+  }
+}
+const user = new UserDetails(
+  "Lakshyadeep",
+  "Gautam",
+  "lakshyadeep@hitoritech.com",
+  "8699584712",
+  "Gautam@9960"
+);
+//we can pass as much data we want like this
+
+const user1 = new UserDetails(
+  "Vishu",
+  "Gautam",
+  "vishu@hitoritech.com",
+  "9814862081",
+  "vishudsa"
+);
+user.function1();
+
+user1.function1();
+
+console.log(typeof UserDetails);
