@@ -686,3 +686,16 @@ user.function1();
 user1.function1();
 
 console.log(typeof UserDetails);
+
+// Inheritance
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    console.log(`Hey ${this.name}`);
+  }
+}
+const obj4 = new Animal("Laksh");
+obj4.speak();
