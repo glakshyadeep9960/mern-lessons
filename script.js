@@ -688,14 +688,27 @@ user1.function1();
 console.log(typeof UserDetails);
 
 // Inheritance
-
+// parent class
 class Animal {
   constructor(name) {
     this.name = name;
   }
   speak() {
-    console.log(`Hey ${this.name}`);
+    console.log(`Hey this is ${this.name}`);
   }
 }
-const obj4 = new Animal("Laksh");
-obj4.speak();
+
+// child class
+class Dog extends Animal {
+  //extends keyword used for Referencing parent class
+  constructor(name) {
+    super(name); // super keyword used to convey the value of child in parent class function
+  }
+}
+
+const x = new Animal("Parent Class");
+const y = new Dog("Child Class");
+x.speak();
+y.speak();
+
+// static keyword
