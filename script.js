@@ -605,97 +605,132 @@
 // const execute = CallHim("Lakshyadeep gautam", 8699584712);
 // execute.fun();
 //Method 3
-function CallHim(name, phoneNumber) {
-  this.name = name;
-  this.phoneNumber = phoneNumber;
-}
+// function CallHim(name, phoneNumber) {
+//   this.name = name;
+//   this.phoneNumber = phoneNumber;
+// }
 
-CallHim.prototype.fun = function () {
-  console.log(
-    `Hey I'm calling ${this.name} on this ${this.phoneNumber} number`
-  );
+// CallHim.prototype.fun = function () {
+//   console.log(
+//     `Hey I'm calling ${this.name} on this ${this.phoneNumber} number`
+//   );
+// };
+// const execute = new CallHim("Lakshyadeep gautam", 8699584712);
+// execute.fun();
+
+// // classes in javascript
+
+// class HelloWorld {
+//   constructor(name, age, phone, email, pass) {
+//     console.log(
+//       `Hey ${name}, age ${age}, phone ${phone}, email ${email} and this is password ${pass}`
+//     );
+//   }
+// }
+
+// const obj = new HelloWorld("Lakshyadeep", 47, 47454, "dsadsadsa", "dsadsa");
+
+// // now integrating above prototype in class of javascript
+
+// class CallHim1 {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   fun() {
+//     console.log("Hello mr" + " " + this.name);
+//   }
+// }
+
+// const obj1 = new CallHim1("lakshyuadepdsa");
+// obj1.fun();
+
+// // practising class
+
+// class UserDetails {
+//   // this is a fake class means it will work just like function
+//   constructor(firstName, lastName, email, phone, password) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.email = email;
+//     this.phone = phone;
+//     this.password = password;
+//   }
+
+//   function1() {
+//     console.log(`Hey I do have your details, please match this before I can hack your pc : {
+//       Name : ${this.firstName} ${this.lastName},
+//       email : ${this.email},
+//       phone : ${this.phone},
+//       password : ${this.password}
+//       }`);
+//   }
+// }
+// const user = new UserDetails(
+//   "Lakshyadeep",
+//   "Gautam",
+//   "lakshyadeep@hitoritech.com",
+//   "8699584712",
+//   "Gautam@9960"
+// );
+// //we can pass as much data we want like this
+
+// const user1 = new UserDetails(
+//   "Vishu",
+//   "Gautam",
+//   "vishu@hitoritech.com",
+//   "9814862081",
+//   "vishudsa"
+// );
+// user.function1();
+
+// user1.function1();
+
+// console.log(typeof UserDetails);
+
+// // Inheritance
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   speak() {
+//     console.log(`Hey ${this.name}`);
+//   }
+// }
+// const obj4 = new Animal("Laksh");
+// obj4.speak();
+
+// Revising Proto
+
+let obj = {
+  fName: "JoHn",
 };
-const execute = new CallHim("Lakshyadeep gautam", 8699584712);
-execute.fun();
 
-// classes in javascript
+let obj2 = {
+  lName: "Cena",
+};
 
-class HelloWorld {
-  constructor(name, age, phone, email, pass) {
-    console.log(
-      `Hey ${name}, age ${age}, phone ${phone}, email ${email} and this is password ${pass}`
-    );
-  }
+obj2.__proto__ = obj;
+
+console.log(obj2.fName, obj2.lName);
+
+obj = Object.create(obj2);
+console.log(obj.lName);
+
+// Revising Prototype
+
+// End of revising Prototype
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
 }
 
-const obj = new HelloWorld("Lakshyadeep", 47, 47454, "dsadsadsa", "dsadsa");
+Person.prototype.greet = function () {
+  console.log(this.name, this.age);
+};
 
-// now integrating above prototype in class of javascript
+const object = new Person("Lakshyadeep Gautam", 22);
+object.greet();
 
-class CallHim1 {
-  constructor(name) {
-    this.name = name;
-  }
-  fun() {
-    console.log("Hello mr" + " " + this.name);
-  }
-}
-
-const obj1 = new CallHim1("lakshyuadepdsa");
-obj1.fun();
-
-// practising class
-
-class UserDetails {
-  // this is a fake class means it will work just like function
-  constructor(firstName, lastName, email, phone, password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.phone = phone;
-    this.password = password;
-  }
-
-  function1() {
-    console.log(`Hey I do have your details, please match this before I can hack your pc : {
-      Name : ${this.firstName} ${this.lastName},
-      email : ${this.email},
-      phone : ${this.phone},
-      password : ${this.password}
-      }`);
-  }
-}
-const user = new UserDetails(
-  "Lakshyadeep",
-  "Gautam",
-  "lakshyadeep@hitoritech.com",
-  "8699584712",
-  "Gautam@9960"
-);
-//we can pass as much data we want like this
-
-const user1 = new UserDetails(
-  "Vishu",
-  "Gautam",
-  "vishu@hitoritech.com",
-  "9814862081",
-  "vishudsa"
-);
-user.function1();
-
-user1.function1();
-
-console.log(typeof UserDetails);
-
-// Inheritance
-
-class Animal {
-  constructor(name) {
-    this.name = name;
-  }
-  speak() {
-    console.log(`Hey ${this.name}`);
-  }
-}
-const obj4 = new Animal("Laksh");
-obj4.speak();
+// Classes in javascript
