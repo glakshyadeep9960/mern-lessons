@@ -245,5 +245,3 @@ function fn(a, b) {
 }
 
 console.log(fn(4, 2));
-
-// DOM MANIPULATION IN JS

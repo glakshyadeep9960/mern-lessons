@@ -756,5 +756,3 @@ const x = new Animal("Parent Class");
 const y = new Dog("Child Class");
 x.speak();
 y.speak();
-
-// static keyword
